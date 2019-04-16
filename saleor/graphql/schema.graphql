@@ -1241,6 +1241,7 @@ type Mutations {
   addressSetDefault(addressId: ID!, type: AddressTypeEnum!, userId: ID!): AddressSetDefault
   userAvatarUpdate(image: Upload!): UserAvatarUpdate
   userAvatarDelete: UserAvatarDelete
+  userBulkSetActive(ids: [ID]!, isActive: Boolean!): UserBulkSetActive
 }
 
 input NameTranslationInput {
@@ -2528,6 +2529,11 @@ type UserAvatarDelete {
 type UserAvatarUpdate {
   errors: [Error!]
   user: User
+}
+
+type UserBulkSetActive {
+  errors: [Error!]
+  count: Int!
 }
 
 type UserCountableConnection {
